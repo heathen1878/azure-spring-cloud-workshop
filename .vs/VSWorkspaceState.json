@@ -1,0 +1,19 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\todo-service",
+    "\\todo-service\\.mvn\\wrapper",
+    "\\todo-service\\src",
+    "\\todo-service\\src\\main",
+    "\\todo-service\\src\\main\\java",
+    "\\todo-service\\src\\main\\java\\com",
+    "\\todo-service\\src\\main\\resources",
+    "\\todo-service\\src\\test",
+    "\\todo-service\\src\\test\\java",
+    "\\todo-service\\src\\test\\java\\com",
+    "\\todo-service\\src\\test\\java\\com\\example",
+    "\\todo-service\\src\\test\\java\\com\\example\\demo"
+  ],
+  "SelectedNode": "\\todo-service\\src\\main\\resources\\application.properties",
+  "PreviewInSolutionExplorer": false
+}
