@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "company": {
+            "value": "msdn"
+        },
+        "environment": {
+            "value": "Training"
+        },
+        "enabledForTemplateDeployment": {
+            "value": true
+        },
+        "enableSoftDelete": {
+            "value": false
+        },
+        "kvUsage": {
+            "value": "SpringCloud"
+        },
+        "keyVaultAdminGroup": {
+            "value": "510c7c44-edc7-4398-ad0f-5a1f1c3fb575"
+        }
+    }
+}
