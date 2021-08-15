@@ -19,6 +19,9 @@
                 }
             ]
         },
+        "deploySpringAppGateway": {
+            "value": "Yes"
+        },
         "springAppGateway": {
             "value": "todo-gateway"
         }

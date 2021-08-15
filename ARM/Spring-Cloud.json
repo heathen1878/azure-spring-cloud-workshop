@@ -114,6 +114,15 @@
             }
         },
         {
+            "type": "Microsoft.AppPlatform/Spring/monitoringSettings",
+            "apiVersion": "2021-06-01-preview",
+            "name": "[concat(variables('springCloudServiceName'), '/default')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "appInsightsInstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', variables('springCloudServiceName')), '2015-05-01', 'Full').properties.InstrumentationKey]"
+            }
+        },
+        {
             "type": "Microsoft.AppPlatform/Spring/apps",
             "apiVersion": "2021-06-01-preview",
             "name": "[concat(variables('springCloudServiceName'), '/', parameters('springApp')[copyIndex('springApplications')].Name)]",
@@ -204,7 +213,7 @@
         {
             "type": "Microsoft.AppPlatform/Spring/apps/bindings",
             "apiVersion": "2021-06-01-preview",
-            "name": "[concat(variables('springCloudServiceName'), '/', parameters('springApp')[copyIndex('springApplications')].Name,'/', variables('springCloudAppDatabase'))]",
+            "name": "[concat(variables('springCloudServiceName'), '/', parameters('springApp')[copyIndex('springApplications')].Name,'/', parameters('springApp')[copyIndex('springApplications')].Name)]",
             "location": "[parameters('location')]",
             "copy": {
                 "name": "springApplications",
@@ -217,9 +226,10 @@
             ],
             "properties": {
                 "resourceId": "[resourceId('Microsoft.DBforMySQL/servers', variables('springCloudAppDatabase'))]",
+                "key": "0",
                 "bindingParameters": {
                     "databaseName": "[parameters('springApp')[copyIndex('springApplications')].Name]",
-                    "username": "[parameters('mySQLAdminUsername')]",
+                    "username": "[concat(parameters('mySQLAdminUsername'), '@', variables('springCloudAppDatabase'))]",
                     "password": "[parameters('mySQLAdminPassword')]"
                 }
             }
