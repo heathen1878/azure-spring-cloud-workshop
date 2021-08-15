@@ -62,5 +62,5 @@ $springOutputs = New-AzResourceGroupDeployment `
 -TemplateFile .\Spring-Cloud.json `
 -TemplateParameterFile .\Spring-Cloud.parameters.json `
 -mySQLAdminUsername $adminUsername `
--mySQLAdminPassword $adminPassword
+-mySQLAdminPassword $adminPassword.SecretValue
 ```
