@@ -29,3 +29,33 @@ $keyVaultOutputs = New-AzResourceGroupDeployment `
 -TemplateFile .\Key-Vault.json `
 -TemplateParameterFile .\Key-Vault.parameters.json
 ```
+
+Create secrets for MySQL
+
+```powershell
+. .\functions.ps1
+
+addSecretToKeyVault -kvName $keyVaultOutputs.Outputs.keyVault_Name.value -secretName "MySQLAdministrator-Username" -secretType "Username" -secretValue "dbAdmin"
+addSecretToKeyVault -kvName $keyVaultOutputs.Outputs.keyVault_Name.value -secretName "MySQLAdministrator-Password" -secretType "Password"
+
+# Retrieve the values from the key vault or add these the parameter file
+Write-Output ('Add this: {0} as the Key Vault Id' -f $keyVaultOUtputs.Outputs.keyVault_Id.value)
+Write-Output ('Add this: builtInAdmin-Username as the adminUsername secret name')
+Write-Output ('Add this: builtInAdmin-Password as the adminPassword secret name')
+
+$adminUsername = Get-AzKeyVaultSecret `
+-VaultName $keyVaultOutputs.Outputs.keyVault_Name.value `
+-Name "MySQLAdministrator-Username" `
+-AsPlainText
+
+$adminPassword = Get-AzKeyVaultSecret `
+-VaultName $keyVaultOutputs.Outputs.keyVault_Name.value `
+-Name "MySQLAdministrator-Password"
+```
+
+and add the GitHub Personal Access Token to Key Vault
+
+```powershell
+
+
+```
