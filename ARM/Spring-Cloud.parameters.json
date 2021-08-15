@@ -1,0 +1,26 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "company":{
+            "value": "msdn"
+        },
+        "environment": {
+            "value": "Training"
+        },
+        "location": {
+            "value": "UK South"
+        },
+        "springApp": {
+            "value": [
+                {
+                    "Name": "todo-service",
+                    "Public": false
+                }
+            ]
+        },
+        "springAppGateway": {
+            "value": "todo-gateway"
+        }
+    }
+}
