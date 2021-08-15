@@ -234,5 +234,23 @@
                 }
             }
         }
-    ]
+    ],
+    "outputs": {
+        "springCloudService_Name": {
+            "type": "string",
+            "value": "[variables('springCloudServiceName')]"
+        },
+        "springCloudApp_Name": {
+            "type": "Array",
+            "copy": {
+                "count": "[length(parameters('springApp'))]",
+                "input": "[parameters('springApp')[copyIndex()].Name]"
+            }
+        },
+        "springCloudAppGateway_Name": {
+            "condition": "[equals(parameters('deploySpringAppGateway'), 'Yes')]",
+            "type": "string",
+            "value": "[parameters('springAppGateway')]"
+        }        
+    }
 }
