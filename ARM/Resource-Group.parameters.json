@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Company": {
+            "value": "msdn"
+        },
+        "environment": {
+            "value": "Training"
+        },
+        "location": {
+            "value": "UK South"
+        },
+        "usage": {
+            "value": "SpringCloud"
+        },
+        "resourceTags":{
+            "value": {
+                "application": "Spring Cloud Demo",
+                "businessContact": "Dom Clayton",
+                "department": "Training",
+                "description": "Contains resources used within the Spring Cloud Demo...",
+                "technicalContact": "Dom Clayton"
+            }
+        },
+        "RBAC": {
+            "value": [
+                {
+                    "roleId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                    "principalId": "510c7c44-edc7-4398-ad0f-5a1f1c3fb575"
+                }
+            ]
+        },
+        "DedicatedSubscription": {
+            "value": "No"
+        }
+    }
+}
