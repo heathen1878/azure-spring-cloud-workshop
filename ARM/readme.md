@@ -1,6 +1,6 @@
 # ARM templates to deploy the spring cloud demo
 
-[Home](../README.MD)
+[Home](../README.md)
 
 The templates here deploy the following:
 
