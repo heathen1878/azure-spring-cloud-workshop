@@ -17,11 +17,15 @@ Create a resource group
 $springResourceGroupOutputs = New-AzDeployment `
 -Name (-Join("Deploy-Resource-Group-",(Get-Date).Day,"-",(Get-Date).Month,"-",(Get-Date).Year,"-",(Get-Date).Hour,(Get-Date).Minute))`
 -Location "UK South" `
--TemplateFile .\Resource-Group.json -TemplateParameterFile ..\Resource-Group.parameters.json
+-TemplateFile .\Resource-Group.json -TemplateParameterFile .\Resource-Group.parameters.json
 ```
 
+Deploy a Key Vault
+
 ```powershell
-$keyVaultOutputs = New-AzResourceGroupDeployment -
-
-
+$keyVaultOutputs = New-AzResourceGroupDeployment `
+-Name (-Join("Deploy-Key-Vault-",(Get-Date).Day,"-",(Get-Date).Month,"-",(Get-Date).Year,"-",(Get-Date).Hour,(Get-Date).Minute)) `
+-ResourceGroupName $springResourceGroupOutputs.Outputs.resourceGroup_Name.value `
+-TemplateFile .\Key-Vault.json `
+-TemplateParameterFile .\Key-Vault.parameters.json
 ```
