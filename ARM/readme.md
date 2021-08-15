@@ -53,9 +53,14 @@ $adminPassword = Get-AzKeyVaultSecret `
 -Name "MySQLAdministrator-Password"
 ```
 
-and add the GitHub Personal Access Token to Key Vault
+Deploy the spring cloud service, MySQL databases and apps
 
 ```powershell
-
-
+$springOutputs = New-AzResourceGroupDeployment `
+-Name (-Join("Deploy-Spring-Cloud-",(Get-Date).Day,"-",(Get-Date).Month,"-",(Get-Date).Year,"-",(Get-Date).Hour,(Get-Date).Minute)) `
+-ResourceGroupName $springResourceGroupOutputs.Outputs.resourceGroup_Name.value `
+-TemplateFile .\Spring-Cloud.json `
+-TemplateParameterFile .\Sping-Cloud.parameters.json `
+-mySQLAdminUsername $adminUsername `
+-mySQLAdminPassword $adminPassword
 ```
